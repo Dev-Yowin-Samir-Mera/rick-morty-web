@@ -1,4 +1,3 @@
-import CardCharacter from "@/modules/components/cardCharacter";
 import CharacterSection from "@/modules/components/characterSection";
 
 export default function Home() {

@@ -6,6 +6,7 @@
   --status-alive: #22c55e;
   --status-dead: #ef4444;
   --status-unknown: #9ca3af;
+  --primary-color: #42B4CA;
 }
 
 @font-face {
@@ -26,7 +27,7 @@
 
 .font-title {
   font-family: var(--font-title);
-  color: #42B4CA;
+  color: var(--primary-color);
   text-shadow: 2px 2px 4px #BFDE42;
 }
 
