@@ -1,7 +1,6 @@
 "use client";
 import { useCharacters } from "@/hooks/useCharacters";
 import CardCharacter from "./cardCharacter";
-import { useCharactersByName } from "@/hooks/useCharactersByName";
 
 export default function CharacterSection() {
   const { data, loading, error } = useCharacters();
