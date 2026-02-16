@@ -30,7 +30,7 @@ export default function CardCharacter(character: Character) {
 
         <div className="mt-auto">
           <p className="text-gray-400 text-sm">Last known location:</p>
-          <p className="text-white text-sm">{character.location.name}</p>
+          <p className="text-white text-sm">{character.location.name}</p> 
         </div>
       </div>
     </article>
