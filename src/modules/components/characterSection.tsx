@@ -2,29 +2,35 @@
 import { useCharacters } from "@/hooks/useCharacters";
 import CardCharacter from "./cardCharacter";
 
-export default function CharacterSection() {
-  const { data, loading, error } = useCharacters();
+type CharacterSectionProps = {
+  searchValue: string;
+};
+
+export default function CharacterSection({ searchValue }: CharacterSectionProps) {
+  const { data, loading, error } = useCharacters(searchValue);
   return (
-    <section className="flex flex-wrap justify-center h-full">
-      <div className="w-full flex justify-center p-6">
-        <div className="w-1/2 flex items-center rounded-lg border border-[#272B33] px-3">
-          <input
-            type="text"
-            id="characterSearch"
-            placeholder="Character search..."
-            autoFocus
-            className="flex-1 py-2 text-(--primary-color) font-bold border-none outline-none bg-transparent"
-          />
-          <img
-            src="/icons/iconSearch.svg"
-            alt="icon search"
-            className="w-6 h-6"
-          />
-        </div>
-      </div>
-      {data?.map((character) => (
-        <CardCharacter key={character.id} {...character} />
-      ))}
+    <section className="flex flex-wrap justify-center h-full gap-2 px-4 pb-10">
+      {loading && (
+        <p className="text-white text-lg font-semibold py-10">
+          Loading...
+        </p>
+      )}
+
+      {error && !loading && (
+        <p className="text-red-400 text-lg font-semibold py-10">{error}</p>
+      )}
+
+      {!loading && !error && data.length === 0 && (
+        <p className="text-gray-300 text-lg font-semibold py-10">
+          No characters found
+        </p>
+      )}
+
+      {!loading &&
+        !error &&
+        data.map((character) => (
+          <CardCharacter key={character.id} {...character} />
+        ))}
     </section>
   );
 }
