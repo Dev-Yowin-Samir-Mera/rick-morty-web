@@ -3,6 +3,17 @@
 :root {
   --background: #ffffff;
   --foreground: #ffffff;
+  --status-alive: #22c55e;
+  --status-dead: #ef4444;
+  --status-unknown: #9ca3af;
+  --primary-color: #42B4CA;
+}
+
+@font-face {
+  font-family: "GetSchwifty";
+  src: url("/fonts/get_schwifty.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @theme inline {
@@ -10,6 +21,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --font-title: "GetSchwifty", sans-serif;
+}
+
+.font-title {
+  font-family: var(--font-title);
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px #BFDE42;
 }
 
 @media (prefers-color-scheme: dark) {
